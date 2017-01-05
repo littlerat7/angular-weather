@@ -21,15 +21,20 @@
 
 <body ng-app="meteoApp">
     <div class="container">
-    
+
         <div class="cities" ng-controller="citiesListController" class="col-md-12 text-center">
-        
+
             <select ng-model="selCitiesList" ng-options="city.nm for city in cities | orderBy:'nm'" class="text-center col-md-4 col-offset-md-4">
-            
+
                     </select>
-        
+
             <div class="weather col-md-12 text-center">
                 <p class="text-center col-md-4 col-offset-md-4" id="selectedCity">{{ selCitiesList.nm }}</p>
+                <div class="city-TodayWeather">
+                  <!-- <p ng-class={{ cityWeather }}> {{cityWeather}}</p> -->
+                  <p>{{ cityWeather}}</p>
+                  <p>{{ cityTemp}}</p>
+                </div>
             </div>
         </div>
     </div>
