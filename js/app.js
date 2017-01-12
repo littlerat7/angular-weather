@@ -2,7 +2,9 @@
     'use strict';
 
     angular.module('meteoApp', [
-        'citiesList',
+        'coreModule',
+        'citiesListModule',
+        'weatherApp',
         ]);
 
 })(window.angular);
