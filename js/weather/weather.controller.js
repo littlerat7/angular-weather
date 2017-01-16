@@ -1,22 +1,38 @@
-(function (angular) {
+(function(angular) {
     'use strict';
-    
+
     angular.module('weatherApp').
-    controller('weatherDetailsController',['$rootScope','coreWeatherFactory', function weatherDetailsController( $rootScope, coreWeatherFactory){
-        let long;
-        let lat;
-        let cityName;
+    controller('weatherDetailsController', ['$rootScope', 'coreWeatherFactory', function weatherDetailsController($rootScope, coreWeatherFactory) {
+        // Store the current context linked to `this`
         let ctrl = this;
-        
-        $rootScope.$on('selectedCity', function(event, data){
-            console.log('event : ', event, ' data :', data);
-            console.log('weatherDetailsController : ', data.nm);
-            
+
+        // get the city selected on the selector
+        $rootScope.$on('selectedCity', function(event, data) {
+            // Get the selected city name send on the event `selectedCity`
             ctrl.city = data;
-            
-            var weather = coreWeatherFactory.getWeather(data.lon, data.lat);
-            console.log('weatherDetailsController - Weather : ',weather);
+            var lat = data.lat;
+            var long = data.lon;
+            //
+            coreWeatherFactory.getCurrentWeather(long, lat).
+            success(function(data) {
+                // Get the current temperature
+                ctrl.temp = Math.floor(data.main.temp)
+                ctrl.unit = 'wi wi-celsius'; // Write °C
+                // Get the current weather
+                ctrl.weather = coreWeatherFactory.weatherToIcon(data.weather[0].main);
+
+                // Get the next Weather
+                coreWeatherFactory.getnextWeather(long, lat).
+                then(function(data){
+                    var nextWeather = coreWeatherFactory.getDetailWeather(data);
+
+                    console.log('getnextWeather= ', nextWeather);
+                });
+                // var nextWeather = coreWeatherFactory.getnextWeather(long, lat);
+                // console.log('getnextWeather= ', nextWeather);
+            });
         });
+        // Stop the propagation of the event
         $rootScope.$destroy('selectedCity');
     }]);
 
