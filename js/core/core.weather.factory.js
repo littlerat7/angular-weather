@@ -45,6 +45,9 @@
                     case "mist":
                         weatherIcon += 'wi-fog';
                         break;
+                        case "snow":
+                            weatherIcon += 'wi-snow';
+                            break;
                     default:
                         console.log(weather);
                         weatherIcon += ('wi-' + weather);
@@ -65,11 +68,14 @@
                 var nextWeather = [];
                 var myObj = this;
                 for (var i = 0; i < 3; i++) {
-                    if (today + i > 7) {
+                    if (today > 7) {
                         today = 1;
+                    } else {
+                        today ++;
                     }
-                    var minTemp = response.data.list[i].temp.min;
-                    var maxTemp = response.data.list[i].temp.max;
+
+                    var minTemp = Math.floor(response.data.list[i].temp.min);
+                    var maxTemp = Math.floor(response.data.list[i].temp.max);
                     var day = dayOfWeek[today];
                     var weather = myObj.weatherToIcon(response.data.list[i].weather[0].main);
 
@@ -77,10 +83,10 @@
                         "day": day,
                         "weather": weather,
                         "maxTemp": maxTemp,
-                        "minTemp": minTemp
+                        "minTemp": minTemp,
+                        "unit": "wi wi-celsius" // °C unit
                     });
                 };
-                console.log(nextWeather);
                 return nextWeather;
 
             }

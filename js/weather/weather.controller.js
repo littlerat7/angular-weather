@@ -24,12 +24,8 @@
                 // Get the next Weather
                 coreWeatherFactory.getnextWeather(long, lat).
                 then(function(data){
-                    var nextWeather = coreWeatherFactory.getDetailWeather(data);
-
-                    console.log('getnextWeather= ', nextWeather);
+                    ctrl.nextWeather = coreWeatherFactory.getDetailWeather(data);                    
                 });
-                // var nextWeather = coreWeatherFactory.getnextWeather(long, lat);
-                // console.log('getnextWeather= ', nextWeather);
             });
         });
         // Stop the propagation of the event
