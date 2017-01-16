@@ -11,7 +11,9 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/weathericons.css" />
+        <!-- <link rel="stylesheet" href="css/weathericons.css" /> -->
+        <!-- Load the weather icons  -->
+        <link rel="stylesheet" href="weather-icons-master\css\weather-icons.min.css" />
 
         <!--Application modules-->
         <script type="text/javascript" src="js/app.js"></script>
@@ -22,7 +24,6 @@
         <script type="text/javascript" src="js/cities-list/cities-list.controller.js"></script>
         <script type="text/javascript" src="js/weather/weatherApp.js"></script>
         <script type="text/javascript" src="js/weather/weather.controller.js"></script>
-
     </head>
 
     <body ng-app="meteoApp">
@@ -30,14 +31,22 @@
 
             <!--Header part : Selection of the city-->
             <div class="cities" ng-controller="citiesListController as citiesLstCtrl" class="col-md-12 text-center">
+                <p>Sélectionnez votre ville : </p>
 
                 <select ng-model="citiesLstCtrl.selCitiesList" ng-options="city.nm for city in citiesLstCtrl.cities | orderBy:'nm'" class="text-center col-md-4 col-offset-md-4" ng-change="citiesLstCtrl.citySelect()"></select>
             </div>
             <!-- End of Header part : Selection of the city-->
-            
+
             <!-- Show the weather for the selected weather -->
             <div class="weather" ng-controller="weatherDetailsController as weatherDetails">
                 <p>{{ weatherDetails.city.nm }}</p>
+              <div class="weather-actualTemp">
+                  <!-- Show the current temperature -->
+                  <p>{{ weatherDetails.temp }} <span class="{{weatherDetails.unit}}"></span></p>
+                  <!-- Show the current weather -->
+                  <p class="{{ weatherDetails.weather }}"> </p>
+              </div>
+
             </div>
             <!-- End of Show the weather for the selected weather -->
         </div>
