@@ -1,13 +1,14 @@
 (function (angular) {
     'use strict';
 
+// Factory functions to get all informations of the weather
     angular.module('coreWeatherModule', []).
     factory('coreWeatherFactory', ['$http', '$q', function ($http, $q) {
         return {
             getWeather: function (lon, lat) {
+                // Get the current weather
                 var url = "http://api.openweathermap.org/data/2.5/weather?" +
                     "APPID=b26dd00efbc7410a76d9b6d4e9272b6c&units=metric";
-                var currentWeather = '';
                 url += '&lat=' + lat + "&lon=" + lon;
                 return $http.get(url);
                 

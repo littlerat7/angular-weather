@@ -29,15 +29,15 @@
         <div class="container">
 
             <!--Header part : Selection of the city-->
-            <div class="cities" ng-controller="citiesListController" class="col-md-12 text-center">
+            <div class="cities" ng-controller="citiesListController as citiesLstCtrl" class="col-md-12 text-center">
 
-                <select ng-model="selCitiesList" ng-options="city.nm for city in cities | orderBy:'nm'" class="text-center col-md-4 col-offset-md-4" ng-change="citySelect()"></select>
+                <select ng-model="citiesLstCtrl.selCitiesList" ng-options="city.nm for city in citiesLstCtrl.cities | orderBy:'nm'" class="text-center col-md-4 col-offset-md-4" ng-change="citiesLstCtrl.citySelect()"></select>
             </div>
             <!-- End of Header part : Selection of the city-->
             
             <!-- Show the weather for the selected weather -->
-            <div class="weather" ng-controller="weatherDetailsController">
-                <p>{{ city.nm }}</p>
+            <div class="weather" ng-controller="weatherDetailsController as weatherDetails">
+                <p>{{ weatherDetails.city.nm }}</p>
             </div>
             <!-- End of Show the weather for the selected weather -->
         </div>

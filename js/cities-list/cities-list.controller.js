@@ -156,19 +156,20 @@
     angular.module('citiesListModule').
     controller('citiesListController', ['$scope', 'coreModuleFactory', '$rootScope', function citiesListController($scope, coreModuleFactory, $rootScope) {
         // Retreive the cities list data
-        var cities;
+        // var cities;
+        var ctrl = this;
         coreModuleFactory.getList('cities-fr.json').
         success(function (data) {
-            cities = data;
-            $scope.cities = data;
+            // cities = data;
+            ctrl.cities = data;
 
             // On select item selected
-            $scope.citySelect = function () {
+            ctrl.citySelect = function () {
                 
                 // $rootScope.$broadcast('selectedCity',$scope.selCitiesList );
-                $rootScope.$emit('selectedCity', $scope.selCitiesList);
+                $rootScope.$emit('selectedCity', ctrl.selCitiesList);
 
-            }
+            };
 
         });
 
