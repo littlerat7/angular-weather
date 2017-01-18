@@ -3,7 +3,7 @@
 */
 
 html, body {
-   color: #fff;
+   color: #ecf0f1;
    font-family:'Open sans', serif ;
 }
 
@@ -42,18 +42,18 @@ select {
 }
 
 .weatherDetails-city{
-    border: 1px solid #FFF;
+    border: 1px solid #ecf0f1;
     margin-top: 5px;
     margin-bottom: 5px;
     min-height: 25px;
 }
 
 .weather-actualTemp{
-    border: 1px solid #FFF;
+    border: 1px solid #ecf0f1;
     margin-top: 10px;
 }
 .weather-forecast{
-    border: 1px solid #FFF;
+    border: 1px solid #ecf0f1;
     margin-top: 10px;
     min-height: 125px;
 }

@@ -2,13 +2,16 @@
     'use strict';
 
     angular.module('weatherApp').
-    controller('weatherDetailsController', ['$rootScope', 'coreWeatherFactory', function weatherDetailsController($rootScope, coreWeatherFactory) {
+    controller('weatherDetailsController', ['$rootScope', 'coreWeatherFactory', 'appStatusFactory',function weatherDetailsController($rootScope, coreWeatherFactory, appStatusFactory ) {
         // Store the current context linked to `this`
         let ctrl = this;
+        ctrl.citySelected= appStatusFactory.citySelected;	
 
         // get the city selected on the selector
         $rootScope.$on('selectedCity', function(event, data) {
             // Get the selected city name send on the event `selectedCity`
+            ctrl.citySelected = true;	
+            appStatusFactory.citySelected = true;	
             ctrl.city = data;
             var lat = data.lat;
             var long = data.lon;
