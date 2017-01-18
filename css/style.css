@@ -1,0 +1,60 @@
+/*
+*    Style of the application
+*/
+
+html, body {
+   color: #fff;
+   font-family:'Open sans', serif ;
+}
+
+.container {
+    margin-top: 50px;
+    padding: 10px;
+    /*background-color: rgb(116, 155, 147);*/
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+45,7db9e8+100 */
+    background: rgb(30, 87, 153);
+    /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 45%, rgba(125, 185, 232, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 45%, rgba(125, 185, 232, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 45%, rgba(125, 185, 232, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
+    /* IE6-9 */
+    border: 1px solid black;
+    height: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+}
+
+/* Top Selection block */
+
+select {
+    color: #000;
+}
+/* End of Top Selection block */
+
+/*  Weather block */
+.weather{
+    margin-top: 10px;
+}
+
+.weatherDetails-city{
+    border: 1px solid #FFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 25px;
+}
+
+.weather-actualTemp{
+    border: 1px solid #FFF;
+    margin-top: 10px;
+}
+.weather-forecast{
+    border: 1px solid #FFF;
+    margin-top: 10px;
+    min-height: 125px;
+}
+/* End of Weather block */
